@@ -3,6 +3,13 @@
 //==============================================================================
 MainComponent::MainComponent()
 {
+    addAndMakeVisible(playPause);
+    playPause.setButtonText("Play");
+    playPause.setClickingTogglesState(true);
+    playPause.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::lightgoldenrodyellow);
+    playPause.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    playPause.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    playPause.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
     setSize (600, 400);
 }
 
@@ -26,4 +33,5 @@ void MainComponent::resized()
     // This is called when the MainComponent is resized.
     // If you add any child components, this is where you should
     // update their positions.
+    playPause.setBounds(10, 10, 100, 30);
 }
