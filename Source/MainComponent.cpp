@@ -164,7 +164,7 @@ MainComponent::MainComponent()
     loopDoubleLabel.setText("2", juce::dontSendNotification);
     
     // Channel switch
-    channelLabel.setText("#", juce::dontSendNotification);
+    channelLabel.setText("1#3", juce::dontSendNotification);
     addAndMakeVisible(channelLabel);
     
     addAndMakeVisible(channelSlide);
@@ -178,6 +178,11 @@ MainComponent::MainComponent()
     volFader.setTextBoxStyle(juce::Slider::TextBoxAbove, false, 72, 32);
     volFader.setRange(-24, 24,0.1);
     
+    // Jog wheel
+    addAndMakeVisible(jog);
+    jog.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalVerticalDrag);
+    jog.setTextBoxStyle(juce::Slider::NoTextBox, false, 1, 1);
+    jog.setRange(0, 100);
 }
 
 MainComponent::~MainComponent()
@@ -190,9 +195,9 @@ void MainComponent::paint (juce::Graphics& g)
     // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
 
-    g.setFont (juce::Font (48.0f));
-    g.setColour (juce::Colours::green);
-    g.drawText ("New Graphics!", getLocalBounds(), juce::Justification::centred, true);
+    //g.setFont (juce::Font (48.0f));
+    //g.setColour (juce::Colours::green);
+    //g.drawText ("New Graphics!", getLocalBounds(), juce::Justification::centred, true);
 }
 
 void MainComponent::resized()
@@ -279,8 +284,12 @@ void MainComponent::resized()
     
     // Channel switch
     channelSlide.setBounds(windowWidth-margin-channelWidth, margin, channelWidth, channelHeight);
-    channelLabel.setBounds(channelSlide.getX()+.25*channelWidth, channelSlide.getY()+channelSlide.getHeight()+labelSpace, channelWidth,labelHeight);
+    channelLabel.setBounds(channelSlide.getX()+0*channelWidth, channelSlide.getY()+channelSlide.getHeight()+labelSpace, channelWidth,labelHeight);
     
     // Volume fader
     volFader.setBounds(windowWidth-margin-faderWidth, windowHeight-margin-faderHeight, faderWidth, faderHeight);
+    
+    // Jog wheel
+    auto jogDim = (windowWidth-margin*2);
+    jog.setBounds(margin, (windowHeight-jogDim)/2, jogDim, jogDim);
 }

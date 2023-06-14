@@ -53,9 +53,10 @@ private:
         juce::Label loopDoubleLabel;
     
     // Channel switch
-    juce::TextButton channelSwitch;
-        juce::Label channelLabel;
     juce::Slider channelSlide;
+        juce::Label channelLabel;
+    
+    juce::Slider jog;
     
     // Volume fader
     juce::Slider volFader;
