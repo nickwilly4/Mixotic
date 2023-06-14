@@ -57,6 +57,33 @@ MainComponent::MainComponent()
     padBottom4.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
     padBottom4.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
     
+    addAndMakeVisible(padTop1);
+    padTop1.setClickingTogglesState(padToggleState);
+    padTop1.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
+    padTop1.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    padTop1.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    padTop1.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    
+    addAndMakeVisible(padTop2);
+    padTop2.setClickingTogglesState(padToggleState);
+    padTop2.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
+    padTop2.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    padTop2.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    padTop2.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    
+    addAndMakeVisible(padTop3);
+    padTop3.setClickingTogglesState(padToggleState);
+    padTop3.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
+    padTop3.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    padTop3.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    padTop3.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    
+    addAndMakeVisible(padTop4);
+    padTop4.setClickingTogglesState(padToggleState);
+    padTop4.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
+    padTop4.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    padTop4.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    padTop4.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
 }
 
 MainComponent::~MainComponent()
@@ -84,7 +111,8 @@ void MainComponent::resized()
     auto margin = 10;
     auto windowWidth = 600;
     auto windowHeight = 800;
-    auto space = 20;
+    auto space = 10;
+    auto biggerSpace = 2*space;
     
     auto buttonWidth = 50;
     auto buttonHeight = 50;
@@ -99,8 +127,13 @@ void MainComponent::resized()
     cue.setBounds(margin, windowHeight-playPause.getHeight()-margin-space-buttonHeight, buttonWidth, buttonHeight);
     
     // Pads
-    padBottom1.setBounds(margin+buttonWidth+space, windowHeight-margin-padHeight, padWidth, padHeight);
-    padBottom2.setBounds(margin+2*buttonWidth+2*space, windowHeight-margin-padHeight, padWidth, padHeight);
-    padBottom3.setBounds(margin+3*buttonWidth+3*space, windowHeight-margin-padHeight, padWidth, padHeight);
-    padBottom4.setBounds(margin+4*buttonWidth+4*space, windowHeight-margin-padHeight, padWidth, padHeight);
+    padBottom1.setBounds(margin+buttonWidth+biggerSpace, windowHeight-margin-padHeight, padWidth, padHeight);
+    padBottom2.setBounds(margin+buttonWidth+biggerSpace+padWidth+space, windowHeight-margin-padHeight, padWidth, padHeight);
+    padBottom3.setBounds(margin+buttonWidth+biggerSpace+2*(padWidth+space), windowHeight-margin-padHeight, padWidth, padHeight);
+    padBottom4.setBounds(margin+buttonWidth+biggerSpace+3*(padWidth+space), windowHeight-margin-padHeight, padWidth, padHeight);
+    
+    padTop1.setBounds(margin+buttonWidth+biggerSpace, windowHeight-margin-space-padHeight-padHeight, padWidth, padHeight);
+    padTop2.setBounds(margin+buttonWidth+biggerSpace+padWidth+space, windowHeight-margin-space-padHeight-padHeight, padWidth, padHeight);
+    padTop3.setBounds(margin+buttonWidth+biggerSpace+2*(padWidth+space), windowHeight-margin-space-padHeight-padHeight, padWidth, padHeight);
+    padTop4.setBounds(margin+buttonWidth+biggerSpace+3*(padWidth+space), windowHeight-margin-space-padHeight-padHeight, padWidth, padHeight);
 }

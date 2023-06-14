@@ -29,6 +29,11 @@ private:
     juce::TextButton padBottom3;
     juce::TextButton padBottom4;
     
+    juce::TextButton padTop1;
+    juce::TextButton padTop2;
+    juce::TextButton padTop3;
+    juce::TextButton padTop4;
+    
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };
