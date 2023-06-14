@@ -1,11 +1,14 @@
 #include "MainComponent.h"
 
 //==============================================================================
+
+// 'Global' Variables
+auto windowWidth = 500;
+auto windowHeight = 800;
+
 MainComponent::MainComponent()
 {
     // Window
-    auto windowWidth = 600;
-    auto windowHeight = 800;
     setSize (windowWidth, windowHeight);
     
     // Play Pause Button
@@ -84,6 +87,38 @@ MainComponent::MainComponent()
     padTop4.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
     padTop4.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
     padTop4.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    
+    // Pad Mode buttons
+    addAndMakeVisible(padMode1);
+    padMode1.setClickingTogglesState(true);
+    padMode1.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
+    padMode1.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    padMode1.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    padMode1.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    
+    addAndMakeVisible(padMode2);
+    padMode2.setClickingTogglesState(true);
+    padMode2.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
+    padMode2.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    padMode2.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    padMode2.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    
+    addAndMakeVisible(padMode3);
+    padMode3.setClickingTogglesState(true);
+    padMode3.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
+    padMode3.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    padMode3.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    padMode3.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    
+    addAndMakeVisible(padMode4);
+    padMode4.setClickingTogglesState(true);
+    padMode4.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
+    padMode4.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    padMode4.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    padMode4.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    
+    
+    
 }
 
 MainComponent::~MainComponent()
@@ -109,8 +144,6 @@ void MainComponent::resized()
     
     // Convenient
     auto margin = 10;
-    auto windowWidth = 600;
-    auto windowHeight = 800;
     auto space = 10;
     auto biggerSpace = 2*space;
     
@@ -119,6 +152,9 @@ void MainComponent::resized()
     
     auto padWidth = 60;
     auto padHeight = 60;
+    
+    auto padModeWidth = padWidth;
+    auto padModeHeight = padHeight/3;
     
     // Play Pause Button
     playPause.setBounds(margin, windowHeight-margin-buttonHeight, buttonWidth, buttonHeight);
@@ -136,4 +172,10 @@ void MainComponent::resized()
     padTop2.setBounds(margin+buttonWidth+biggerSpace+padWidth+space, windowHeight-margin-space-padHeight-padHeight, padWidth, padHeight);
     padTop3.setBounds(margin+buttonWidth+biggerSpace+2*(padWidth+space), windowHeight-margin-space-padHeight-padHeight, padWidth, padHeight);
     padTop4.setBounds(margin+buttonWidth+biggerSpace+3*(padWidth+space), windowHeight-margin-space-padHeight-padHeight, padWidth, padHeight);
+    
+    // Pad Modes
+    padMode1.setBounds(margin+buttonWidth+biggerSpace, windowHeight-margin-2*(space+padHeight)-padModeHeight, padModeWidth, padModeHeight);
+    padMode2.setBounds(margin+buttonWidth+biggerSpace+padWidth+space, windowHeight-margin-2*(space+padHeight)-padModeHeight, padModeWidth, padModeHeight);
+    padMode3.setBounds(margin+buttonWidth+biggerSpace+2*(padWidth+space), windowHeight-margin-2*(space+padHeight)-padModeHeight, padModeWidth, padModeHeight);
+    padMode4.setBounds(margin+buttonWidth+biggerSpace+3*(padWidth+space), windowHeight-margin-2*(space+padHeight)-padModeHeight, padModeWidth, padModeHeight);
 }
