@@ -39,6 +39,16 @@ private:
     juce::TextButton padMode2;
     juce::TextButton padMode3;
     juce::TextButton padMode4;
+    
+    // Loop
+    juce::TextButton loopIn;
+    juce::TextButton loopOut;
+    juce::TextButton loopRe;
+    juce::TextButton loopHalf;
+    juce::TextButton loopDouble;
+    
+    // Channel switch
+    juce::TextButton channelSwitch;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };

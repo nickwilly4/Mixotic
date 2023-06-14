@@ -117,8 +117,49 @@ MainComponent::MainComponent()
     padMode4.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
     padMode4.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
     
+    // Loop Buttons
+    addAndMakeVisible(loopIn);
+    loopIn.setClickingTogglesState(true);
+    loopIn.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::orange);
+    loopIn.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    loopIn.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    loopIn.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
     
+    addAndMakeVisible(loopOut);
+    loopOut.setClickingTogglesState(true);
+    loopOut.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::orange);
+    loopOut.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    loopOut.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    loopOut.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
     
+    addAndMakeVisible(loopRe);
+    loopRe.setClickingTogglesState(false);
+    loopRe.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::green);
+    loopRe.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    loopRe.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    loopRe.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    
+    addAndMakeVisible(loopHalf);
+    loopHalf.setClickingTogglesState(false);
+    loopHalf.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::green);
+    loopHalf.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    loopHalf.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    loopHalf.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    
+    addAndMakeVisible(loopDouble);
+    loopDouble.setClickingTogglesState(false);
+    loopDouble.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::green);
+    loopDouble.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    loopDouble.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    loopDouble.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    
+    // Channel switch
+    addAndMakeVisible(channelSwitch);
+    channelSwitch.setClickingTogglesState(true);
+    channelSwitch.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::blue);
+    channelSwitch.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    channelSwitch.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    channelSwitch.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
 }
 
 MainComponent::~MainComponent()
@@ -150,11 +191,20 @@ void MainComponent::resized()
     auto buttonWidth = 50;
     auto buttonHeight = 50;
     
+    auto smallButtonWidth = 20;
+    auto smallButtonHeight = 20;
+    
     auto padWidth = 60;
     auto padHeight = 60;
     
     auto padModeWidth = padWidth;
     auto padModeHeight = padHeight/3;
+    
+    auto loopBigWidth = 40;
+    auto loopBigHeight = 40;
+    
+    auto channelWidth = 80;
+    auto channelHeight = channelWidth/2;
     
     // Play Pause Button
     playPause.setBounds(margin, windowHeight-margin-buttonHeight, buttonWidth, buttonHeight);
@@ -178,4 +228,16 @@ void MainComponent::resized()
     padMode2.setBounds(margin+buttonWidth+biggerSpace+padWidth+space, windowHeight-margin-2*(space+padHeight)-padModeHeight, padModeWidth, padModeHeight);
     padMode3.setBounds(margin+buttonWidth+biggerSpace+2*(padWidth+space), windowHeight-margin-2*(space+padHeight)-padModeHeight, padModeWidth, padModeHeight);
     padMode4.setBounds(margin+buttonWidth+biggerSpace+3*(padWidth+space), windowHeight-margin-2*(space+padHeight)-padModeHeight, padModeWidth, padModeHeight);
+    
+    // Loop
+    loopIn.setBounds(margin, margin, loopBigWidth, loopBigHeight);
+    loopOut.setBounds(margin+loopBigWidth+space, margin, loopBigWidth, loopBigHeight);
+    loopRe.setBounds(margin+loopBigWidth+space+loopBigWidth+biggerSpace, margin, smallButtonWidth, smallButtonHeight);
+    loopHalf.setBounds(margin+loopBigWidth+space+loopBigWidth+biggerSpace+smallButtonWidth+space, margin, smallButtonWidth, smallButtonHeight);
+    loopDouble.setBounds(margin+loopBigWidth+space+loopBigWidth+biggerSpace+2*smallButtonWidth+2*space, margin, smallButtonWidth, smallButtonHeight);
+    
+    // Channel switch
+    
+    channelSwitch.setBounds(windowWidth-margin-channelWidth, margin, channelWidth, channelHeight);
+    
 }
