@@ -3,7 +3,7 @@
 //==============================================================================
 
 // 'Global' Variables
-auto windowWidth = 500;
+auto windowWidth = 450;
 auto windowHeight = 800;
 
 MainComponent::MainComponent()
@@ -237,7 +237,5 @@ void MainComponent::resized()
     loopDouble.setBounds(margin+loopBigWidth+space+loopBigWidth+biggerSpace+2*smallButtonWidth+2*space, margin, smallButtonWidth, smallButtonHeight);
     
     // Channel switch
-    
     channelSwitch.setBounds(windowWidth-margin-channelWidth, margin, channelWidth, channelHeight);
-    
 }
