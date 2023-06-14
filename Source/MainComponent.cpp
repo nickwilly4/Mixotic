@@ -164,14 +164,20 @@ MainComponent::MainComponent()
     loopDoubleLabel.setText("2", juce::dontSendNotification);
     
     // Channel switch
-    addAndMakeVisible(channelSwitch);
-    channelSwitch.setClickingTogglesState(true);
-    channelSwitch.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::blue);
-    channelSwitch.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    channelSwitch.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    channelSwitch.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    channelLabel.setText("#", juce::dontSendNotification);
     addAndMakeVisible(channelLabel);
-    channelLabel.setText("Channel", juce::dontSendNotification);
+    
+    addAndMakeVisible(channelSlide);
+    channelSlide.setSliderStyle(juce::Slider::SliderStyle::LinearHorizontal);
+    channelSlide.setTextBoxStyle(juce::Slider::NoTextBox, false, 72, 32);
+    channelSlide.setRange(0, 1,1);
+    
+    // Volume fader
+    addAndMakeVisible(volFader);
+    volFader.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
+    volFader.setTextBoxStyle(juce::Slider::TextBoxAbove, false, 72, 32);
+    volFader.setRange(-24, 24,0.1);
+    
 }
 
 MainComponent::~MainComponent()
@@ -224,8 +230,12 @@ void MainComponent::resized()
     auto padModeHeight = padHeight/3;
     
     // Channel toggle 'switch' button
-    auto channelWidth = 80;
+    auto channelWidth = 40;
     auto channelHeight = channelWidth/2;
+    
+    // Volume fader
+    auto faderWidth = 50;
+    auto faderHeight = 200;
     
     // Play Pause Button
     playPause.setBounds(margin, windowHeight-margin-buttonHeight, buttonWidth, buttonHeight);
@@ -267,8 +277,10 @@ void MainComponent::resized()
     loopDouble.setBounds(loopHalf.getX()+loopHalf.getWidth()+space, margin, smallButtonWidth, smallButtonHeight);
     loopDoubleLabel.setBounds(loopDouble.getX(), loopDouble.getY()+loopDouble.getHeight()+labelSpace, loopBigWidth,labelHeight);
     
-    
     // Channel switch
-    channelSwitch.setBounds(windowWidth-margin-channelWidth, margin, channelWidth, channelHeight);
-    channelLabel.setBounds(channelSwitch.getX(), channelSwitch.getY()+channelSwitch.getHeight()+labelSpace, channelWidth,labelHeight);
+    channelSlide.setBounds(windowWidth-margin-channelWidth, margin, channelWidth, channelHeight);
+    channelLabel.setBounds(channelSlide.getX()+.25*channelWidth, channelSlide.getY()+channelSlide.getHeight()+labelSpace, channelWidth,labelHeight);
+    
+    // Volume fader
+    volFader.setBounds(windowWidth-margin-faderWidth, windowHeight-margin-faderHeight, faderWidth, faderHeight);
 }

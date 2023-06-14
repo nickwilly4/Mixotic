@@ -55,5 +55,9 @@ private:
     // Channel switch
     juce::TextButton channelSwitch;
         juce::Label channelLabel;
+    juce::Slider channelSlide;
+    
+    // Volume fader
+    juce::Slider volFader;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };
