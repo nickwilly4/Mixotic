@@ -124,6 +124,8 @@ MainComponent::MainComponent()
     loopIn.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
     loopIn.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
     loopIn.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    addAndMakeVisible(loopInLabel);
+    loopInLabel.setText("In", juce::dontSendNotification);
     
     addAndMakeVisible(loopOut);
     loopOut.setClickingTogglesState(true);
@@ -131,6 +133,8 @@ MainComponent::MainComponent()
     loopOut.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
     loopOut.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
     loopOut.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    addAndMakeVisible(loopOutLabel);
+    loopOutLabel.setText("Out", juce::dontSendNotification);
     
     addAndMakeVisible(loopRe);
     loopRe.setClickingTogglesState(false);
@@ -138,6 +142,8 @@ MainComponent::MainComponent()
     loopRe.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
     loopRe.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
     loopRe.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    addAndMakeVisible(loopReLabel);
+    loopReLabel.setText("Re", juce::dontSendNotification);
     
     addAndMakeVisible(loopHalf);
     loopHalf.setClickingTogglesState(false);
@@ -145,6 +151,8 @@ MainComponent::MainComponent()
     loopHalf.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
     loopHalf.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
     loopHalf.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    addAndMakeVisible(loopHalfLabel);
+    loopHalfLabel.setText("1/2", juce::dontSendNotification);
     
     addAndMakeVisible(loopDouble);
     loopDouble.setClickingTogglesState(false);
@@ -152,6 +160,8 @@ MainComponent::MainComponent()
     loopDouble.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
     loopDouble.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
     loopDouble.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    addAndMakeVisible(loopDoubleLabel);
+    loopDoubleLabel.setText("2", juce::dontSendNotification);
     
     // Channel switch
     addAndMakeVisible(channelSwitch);
@@ -160,6 +170,8 @@ MainComponent::MainComponent()
     channelSwitch.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
     channelSwitch.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
     channelSwitch.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    addAndMakeVisible(channelLabel);
+    channelLabel.setText("Channel", juce::dontSendNotification);
 }
 
 MainComponent::~MainComponent()
@@ -188,21 +200,30 @@ void MainComponent::resized()
     auto space = 10;
     auto biggerSpace = 2*space;
     
-    auto buttonWidth = 50;
-    auto buttonHeight = 50;
+    auto labelHeight = 10;
+    auto labelSpace = 10;
     
-    auto smallButtonWidth = 20;
-    auto smallButtonHeight = 20;
+    // Play pause button
+    auto buttonWidth = 75; // needs to be 1.25 * padWidth
+    auto buttonHeight = buttonWidth;
     
+    // Reloop, 1/2, 2 buttons
+    auto smallButtonWidth = 30;
+    auto smallButtonHeight = smallButtonWidth;
+    
+    // In and Out loop buttons
+    auto loopBigWidth = 50;
+    auto loopBigHeight = loopBigWidth;
+    
+    // Pads
     auto padWidth = 60;
-    auto padHeight = 60;
+    auto padHeight = padWidth;
     
+    // Pad mode buttons
     auto padModeWidth = padWidth;
     auto padModeHeight = padHeight/3;
     
-    auto loopBigWidth = 40;
-    auto loopBigHeight = 40;
-    
+    // Channel toggle 'switch' button
     auto channelWidth = 80;
     auto channelHeight = channelWidth/2;
     
@@ -229,13 +250,25 @@ void MainComponent::resized()
     padMode3.setBounds(margin+buttonWidth+biggerSpace+2*(padWidth+space), windowHeight-margin-2*(space+padHeight)-padModeHeight, padModeWidth, padModeHeight);
     padMode4.setBounds(margin+buttonWidth+biggerSpace+3*(padWidth+space), windowHeight-margin-2*(space+padHeight)-padModeHeight, padModeWidth, padModeHeight);
     
-    // Loop
+    // Big Loop buttons
     loopIn.setBounds(margin, margin, loopBigWidth, loopBigHeight);
-    loopOut.setBounds(margin+loopBigWidth+space, margin, loopBigWidth, loopBigHeight);
-    loopRe.setBounds(margin+loopBigWidth+space+loopBigWidth+biggerSpace, margin, smallButtonWidth, smallButtonHeight);
-    loopHalf.setBounds(margin+loopBigWidth+space+loopBigWidth+biggerSpace+smallButtonWidth+space, margin, smallButtonWidth, smallButtonHeight);
-    loopDouble.setBounds(margin+loopBigWidth+space+loopBigWidth+biggerSpace+2*smallButtonWidth+2*space, margin, smallButtonWidth, smallButtonHeight);
+    loopInLabel.setBounds(loopIn.getX(), loopIn.getY()+loopIn.getHeight()+labelSpace, loopBigWidth,labelHeight);
+    
+    loopOut.setBounds(loopIn.getX()+loopIn.getWidth()+space, margin, loopBigWidth, loopBigHeight);
+    loopOutLabel.setBounds(loopOut.getX(), loopOut.getY()+loopOut.getHeight()+labelSpace, loopBigWidth,labelHeight);
+    
+    // Small Loop Buttons
+    loopRe.setBounds(loopOut.getX()+loopOut.getWidth()+biggerSpace, margin, smallButtonWidth, smallButtonHeight);
+    loopReLabel.setBounds(loopRe.getX(), loopRe.getY()+loopRe.getHeight()+labelSpace, loopBigWidth,labelHeight);
+    
+    loopHalf.setBounds(loopRe.getX()+loopRe.getWidth()+space, margin, smallButtonWidth, smallButtonHeight);
+    loopHalfLabel.setBounds(loopHalf.getX(), loopHalf.getY()+loopHalf.getHeight()+labelSpace, loopBigWidth,labelHeight);
+    
+    loopDouble.setBounds(loopHalf.getX()+loopHalf.getWidth()+space, margin, smallButtonWidth, smallButtonHeight);
+    loopDoubleLabel.setBounds(loopDouble.getX(), loopDouble.getY()+loopDouble.getHeight()+labelSpace, loopBigWidth,labelHeight);
+    
     
     // Channel switch
     channelSwitch.setBounds(windowWidth-margin-channelWidth, margin, channelWidth, channelHeight);
+    channelLabel.setBounds(channelSwitch.getX(), channelSwitch.getY()+channelSwitch.getHeight()+labelSpace, channelWidth,labelHeight);
 }

@@ -42,13 +42,18 @@ private:
     
     // Loop
     juce::TextButton loopIn;
+        juce::Label loopInLabel;
     juce::TextButton loopOut;
+        juce::Label loopOutLabel;
     juce::TextButton loopRe;
+        juce::Label loopReLabel;
     juce::TextButton loopHalf;
+        juce::Label loopHalfLabel;
     juce::TextButton loopDouble;
+        juce::Label loopDoubleLabel;
     
     // Channel switch
     juce::TextButton channelSwitch;
-
+        juce::Label channelLabel;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };
