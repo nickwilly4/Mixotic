@@ -26,6 +26,37 @@ MainComponent::MainComponent()
     cue.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
     cue.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
     
+    // Pads
+    auto padColor = juce::Colours::red;
+    auto padToggleState = true;
+    addAndMakeVisible(padBottom1);
+    padBottom1.setClickingTogglesState(padToggleState);
+    padBottom1.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
+    padBottom1.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    padBottom1.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    padBottom1.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    
+    addAndMakeVisible(padBottom2);
+    padBottom2.setClickingTogglesState(padToggleState);
+    padBottom2.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
+    padBottom2.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    padBottom2.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    padBottom2.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    
+    addAndMakeVisible(padBottom3);
+    padBottom3.setClickingTogglesState(padToggleState);
+    padBottom3.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
+    padBottom3.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    padBottom3.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    padBottom3.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    
+    addAndMakeVisible(padBottom4);
+    padBottom4.setClickingTogglesState(padToggleState);
+    padBottom4.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
+    padBottom4.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    padBottom4.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    padBottom4.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    
 }
 
 MainComponent::~MainComponent()
@@ -51,14 +82,25 @@ void MainComponent::resized()
     
     // Convenient
     auto margin = 10;
-    auto buttonWidth = 50;
-    auto buttonHeight = 50;
     auto windowWidth = 600;
     auto windowHeight = 800;
+    auto space = 20;
+    
+    auto buttonWidth = 50;
+    auto buttonHeight = 50;
+    
+    auto padWidth = 60;
+    auto padHeight = 60;
     
     // Play Pause Button
     playPause.setBounds(margin, windowHeight-margin-buttonHeight, buttonWidth, buttonHeight);
     
     // Cue Button
-    cue.setBounds(margin, windowHeight-playPause.getHeight()-margin-margin-buttonHeight, buttonWidth, buttonHeight);
+    cue.setBounds(margin, windowHeight-playPause.getHeight()-margin-space-buttonHeight, buttonWidth, buttonHeight);
+    
+    // Pads
+    padBottom1.setBounds(margin+buttonWidth+space, windowHeight-margin-padHeight, padWidth, padHeight);
+    padBottom2.setBounds(margin+2*buttonWidth+2*space, windowHeight-margin-padHeight, padWidth, padHeight);
+    padBottom3.setBounds(margin+3*buttonWidth+3*space, windowHeight-margin-padHeight, padWidth, padHeight);
+    padBottom4.setBounds(margin+4*buttonWidth+4*space, windowHeight-margin-padHeight, padWidth, padHeight);
 }
