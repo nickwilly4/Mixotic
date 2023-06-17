@@ -4,7 +4,7 @@
 
 // 'Global' Variables
 auto windowWidth = 450;
-auto windowHeight = 800;
+auto windowHeight = 700;
 
 MainComponent::MainComponent()
 {
@@ -291,5 +291,6 @@ void MainComponent::resized()
     
     // Jog wheel
     auto jogDim = (windowWidth-margin*2);
-    jog.setBounds(margin, (windowHeight-jogDim)/2, jogDim, jogDim);
+    jog.setBounds(margin, (windowHeight-jogDim)/2-50, jogDim, jogDim);
+    //jog.setDoubleClickReturnValue(true, 0);
 }
