@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="HYdCfQ" name="NewProject" projectType="guiapp" useAppConfig="0"
+<JUCERPROJECT id="HYdCfQ" name="Mixotic" projectType="guiapp" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
-  <MAINGROUP id="nutRmm" name="NewProject">
+  <MAINGROUP id="nutRmm" name="Mixotic">
     <GROUP id="{868FF1FF-C3DA-6D5A-55CE-73E70FEDDF57}" name="Source">
       <FILE id="bN5Fsi" name="LeftDeckComponent.cpp" compile="1" resource="0"
             file="Source/LeftDeckComponent.cpp"/>
