@@ -3,7 +3,7 @@
 //==============================================================================
 MainComponent::MainComponent()
 {
-    setSize (800, 600);
+    setSize (1350, 700);
     
     addAndMakeVisible(leftDeckComponent);
     addAndMakeVisible(rightDeckComponent);

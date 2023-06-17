@@ -191,12 +191,6 @@ MixerComponent::MixerComponent()
     volFader.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
     volFader.setTextBoxStyle(juce::Slider::TextBoxAbove, false, 72, 32);
     volFader.setRange(-24, 24,0.1);
-    
-    // Jog wheel
-    addAndMakeVisible(jog);
-    jog.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalVerticalDrag);
-    jog.setTextBoxStyle(juce::Slider::NoTextBox, false, 1, 1);
-    jog.setRange(0, 100);
 }
 
 MixerComponent::~MixerComponent()
@@ -302,10 +296,4 @@ void MixerComponent::resized()
     
     // Volume fader
     volFader.setBounds(windowWidth-margin-faderWidth, windowHeight-margin-faderHeight, faderWidth, faderHeight);
-    
-    // Jog wheel
-    auto jogDim = (windowWidth-margin*2);
-    jog.setBounds(margin, (windowHeight-jogDim)/2-50, jogDim, jogDim);
-    //jog.setDoubleClickReturnValue(true, 0);
-    
 }

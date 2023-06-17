@@ -71,8 +71,7 @@ private:
     // Channel switch
     juce::Slider channelSlide;
         juce::Label channelLabel;
-    
-    juce::Slider jog;
+
     
     // Volume fader
     juce::Slider volFader;
