@@ -23,174 +23,65 @@ MixerComponent::MixerComponent()
     // Window
     setSize (windowWidth, windowHeight);
     
-    // Play Pause Button
-    addAndMakeVisible(playPause);
-    playPause.setButtonText("Play");
-    playPause.setClickingTogglesState(true);
-    playPause.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::lightgoldenrodyellow);
-    playPause.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    playPause.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    playPause.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    // Load
+    addAndMakeVisible(load_chn1);
+    load_chn1.onClick = [&]() {printf("test");};
     
-    // Cue Button
-    addAndMakeVisible(cue);
-    cue.setButtonText("Cue");
-    cue.setClickingTogglesState(true);
-    cue.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::lightgoldenrodyellow);
-    cue.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    cue.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    cue.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    // Channel Trim
+    addAndMakeVisible(trim_chn1);
+    trim_chn1.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalDrag);
+    trim_chn1.setTextBoxStyle(juce::Slider::NoTextBox, false, 1, 1);
+    trim_chn1.setRange(-24, 24);
     
-    // Pads
-    auto padColor = juce::Colours::red;
-    auto padToggleState = true;
-    addAndMakeVisible(padBottom1);
-    padBottom1.setClickingTogglesState(padToggleState);
-    padBottom1.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
-    padBottom1.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    padBottom1.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    padBottom1.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
-    //padBottom1.onClick = [this] {openButtonClicked(); };
-    padBottom1.onClick = [&]() {printf("test");};
+    addAndMakeVisible(hi_chn1);
+    hi_chn1.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalDrag);
+    hi_chn1.setTextBoxStyle(juce::Slider::NoTextBox, false, 1, 1);
+    hi_chn1.setRange(-24, 24);
     
-    addAndMakeVisible(padBottom2);
-    padBottom2.setClickingTogglesState(padToggleState);
-    padBottom2.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
-    padBottom2.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    padBottom2.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    padBottom2.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    addAndMakeVisible(med_chn1);
+    med_chn1.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalDrag);
+    med_chn1.setTextBoxStyle(juce::Slider::NoTextBox, false, 1, 1);
+    med_chn1.setRange(-24, 24);
     
-    addAndMakeVisible(padBottom3);
-    padBottom3.setClickingTogglesState(padToggleState);
-    padBottom3.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
-    padBottom3.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    padBottom3.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    padBottom3.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    addAndMakeVisible(lo_chn1);
+    lo_chn1.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalDrag);
+    lo_chn1.setTextBoxStyle(juce::Slider::NoTextBox, false, 1, 1);
+    lo_chn1.setRange(-24, 24);
     
-    addAndMakeVisible(padBottom4);
-    padBottom4.setClickingTogglesState(padToggleState);
-    padBottom4.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
-    padBottom4.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    padBottom4.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    padBottom4.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    addAndMakeVisible(clr_chn1);
+    clr_chn1.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalDrag);
+    clr_chn1.setTextBoxStyle(juce::Slider::NoTextBox, false, 1, 1);
+    clr_chn1.setRange(-24, 24);
     
-    addAndMakeVisible(padTop1);
-    padTop1.setClickingTogglesState(padToggleState);
-    padTop1.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
-    padTop1.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    padTop1.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    padTop1.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    addAndMakeVisible(fx_chn1);
+    fx_chn1.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalDrag);
+    fx_chn1.setTextBoxStyle(juce::Slider::NoTextBox, false, 1, 1);
+    fx_chn1.setRange(-24, 24);
     
-    addAndMakeVisible(padTop2);
-    padTop2.setClickingTogglesState(padToggleState);
-    padTop2.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
-    padTop2.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    padTop2.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    padTop2.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    // FX Toggle
+    addAndMakeVisible(fxtoggle_chn1);
+    fxtoggle_chn1.setClickingTogglesState(true);
+    fxtoggle_chn1.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::green);
+    fxtoggle_chn1.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    fxtoggle_chn1.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    fxtoggle_chn1.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
     
-    addAndMakeVisible(padTop3);
-    padTop3.setClickingTogglesState(padToggleState);
-    padTop3.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
-    padTop3.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    padTop3.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    padTop3.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
-    
-    addAndMakeVisible(padTop4);
-    padTop4.setClickingTogglesState(padToggleState);
-    padTop4.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
-    padTop4.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    padTop4.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    padTop4.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
-    
-    // Pad Mode buttons
-    addAndMakeVisible(padMode1);
-    padMode1.setClickingTogglesState(true);
-    padMode1.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
-    padMode1.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    padMode1.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    padMode1.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
-    
-    addAndMakeVisible(padMode2);
-    padMode2.setClickingTogglesState(true);
-    padMode2.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
-    padMode2.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    padMode2.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    padMode2.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
-    
-    addAndMakeVisible(padMode3);
-    padMode3.setClickingTogglesState(true);
-    padMode3.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
-    padMode3.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    padMode3.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    padMode3.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
-    
-    addAndMakeVisible(padMode4);
-    padMode4.setClickingTogglesState(true);
-    padMode4.setColour(juce::TextButton::ColourIds::buttonOnColourId, padColor);
-    padMode4.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    padMode4.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    padMode4.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
-    
-    // Loop Buttons
-    addAndMakeVisible(loopIn);
-    loopIn.setClickingTogglesState(true);
-    loopIn.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::orange);
-    loopIn.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    loopIn.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    loopIn.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
-    addAndMakeVisible(loopInLabel);
-    loopInLabel.setText("In", juce::dontSendNotification);
-    
-    addAndMakeVisible(loopOut);
-    loopOut.setClickingTogglesState(true);
-    loopOut.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::orange);
-    loopOut.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    loopOut.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    loopOut.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
-    addAndMakeVisible(loopOutLabel);
-    loopOutLabel.setText("Out", juce::dontSendNotification);
-    
-    addAndMakeVisible(loopRe);
-    loopRe.setClickingTogglesState(false);
-    loopRe.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::green);
-    loopRe.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    loopRe.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    loopRe.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
-    addAndMakeVisible(loopReLabel);
-    loopReLabel.setText("Re", juce::dontSendNotification);
-    
-    addAndMakeVisible(loopHalf);
-    loopHalf.setClickingTogglesState(false);
-    loopHalf.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::green);
-    loopHalf.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    loopHalf.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    loopHalf.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
-    addAndMakeVisible(loopHalfLabel);
-    loopHalfLabel.setText("1/2", juce::dontSendNotification);
-    
-    addAndMakeVisible(loopDouble);
-    loopDouble.setClickingTogglesState(false);
-    loopDouble.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::green);
-    loopDouble.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
-    loopDouble.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
-    loopDouble.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
-    addAndMakeVisible(loopDoubleLabel);
-    loopDoubleLabel.setText("2", juce::dontSendNotification);
-    
-    // Channel switch
-    channelLabel.setText("1#3", juce::dontSendNotification);
-    addAndMakeVisible(channelLabel);
-    
-    addAndMakeVisible(channelSlide);
-    channelSlide.setSliderStyle(juce::Slider::SliderStyle::LinearHorizontal);
-    channelSlide.setTextBoxStyle(juce::Slider::NoTextBox, false, 72, 32);
-    channelSlide.setRange(0, 1,1);
+    // Cue Toggle
+    addAndMakeVisible(cuetoggle_chn1);
+    cuetoggle_chn1.setClickingTogglesState(true);
+    cuetoggle_chn1.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::red);
+    cuetoggle_chn1.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
+    cuetoggle_chn1.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
+    cuetoggle_chn1.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
     
     // Volume fader
     addAndMakeVisible(volFader);
     volFader.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
-    volFader.setTextBoxStyle(juce::Slider::TextBoxAbove, false, 72, 32);
+    //volFader.setTextBoxStyle(juce::Slider::TextBoxAbove, false, 72, 32);
+    volFader.setTextBoxStyle(juce::Slider::NoTextBox, false, 1, 1);
     volFader.setRange(-24, 24,0.1);
+    
+    
 }
 
 MixerComponent::~MixerComponent()
@@ -222,78 +113,42 @@ void MixerComponent::resized()
     auto labelHeight = 10;
     auto labelSpace = 10;
     
-    // Play pause button
-    auto buttonWidth = 75; // needs to be 1.25 * padWidth
-    auto buttonHeight = buttonWidth;
-    
-    // Reloop, 1/2, 2 buttons
-    auto smallButtonWidth = 30;
-    auto smallButtonHeight = smallButtonWidth;
-    
-    // In and Out loop buttons
-    auto loopBigWidth = 50;
-    auto loopBigHeight = loopBigWidth;
-    
-    // Pads
-    auto padWidth = 60;
-    auto padHeight = padWidth;
-    
-    // Pad mode buttons
-    auto padModeWidth = padWidth;
-    auto padModeHeight = padHeight/3;
-    
-    // Channel toggle 'switch' button
-    auto channelWidth = 40;
-    auto channelHeight = channelWidth/2;
+    // Button
+    auto buttonWidth = 60;
+    auto buttonHeight = buttonWidth/3;
     
     // Volume fader
     auto faderWidth = 50;
-    auto faderHeight = 200;
+    auto faderHeight = 150;
     
-    // Play Pause Button
-    playPause.setBounds(margin, windowHeight-margin-buttonHeight, buttonWidth, buttonHeight);
+    load_chn1.setBounds(margin, margin, buttonWidth, buttonHeight);
     
-    // Cue Button
-    cue.setBounds(margin, windowHeight-playPause.getHeight()-margin-space-buttonHeight, buttonWidth, buttonHeight);
+    // Dial
+    auto dialDim = 60;
+    auto chn1_x = margin;
     
-    // Pads
-    padBottom1.setBounds(margin+buttonWidth+biggerSpace, windowHeight-margin-padHeight, padWidth, padHeight);
-    padBottom2.setBounds(margin+buttonWidth+biggerSpace+padWidth+space, windowHeight-margin-padHeight, padWidth, padHeight);
-    padBottom3.setBounds(margin+buttonWidth+biggerSpace+2*(padWidth+space), windowHeight-margin-padHeight, padWidth, padHeight);
-    padBottom4.setBounds(margin+buttonWidth+biggerSpace+3*(padWidth+space), windowHeight-margin-padHeight, padWidth, padHeight);
+    trim_chn1.setBounds(chn1_x, load_chn1.getY()+buttonHeight+space, dialDim, dialDim);
+    trim_chn1.setDoubleClickReturnValue(true, 0);
     
-    padTop1.setBounds(margin+buttonWidth+biggerSpace, windowHeight-margin-space-padHeight-padHeight, padWidth, padHeight);
-    padTop2.setBounds(margin+buttonWidth+biggerSpace+padWidth+space, windowHeight-margin-space-padHeight-padHeight, padWidth, padHeight);
-    padTop3.setBounds(margin+buttonWidth+biggerSpace+2*(padWidth+space), windowHeight-margin-space-padHeight-padHeight, padWidth, padHeight);
-    padTop4.setBounds(margin+buttonWidth+biggerSpace+3*(padWidth+space), windowHeight-margin-space-padHeight-padHeight, padWidth, padHeight);
+    hi_chn1.setBounds(chn1_x, trim_chn1.getY()+dialDim+space, dialDim, dialDim);
+    hi_chn1.setDoubleClickReturnValue(true, 0);
     
-    // Pad Modes
-    padMode1.setBounds(margin+buttonWidth+biggerSpace, windowHeight-margin-2*(space+padHeight)-padModeHeight, padModeWidth, padModeHeight);
-    padMode2.setBounds(margin+buttonWidth+biggerSpace+padWidth+space, windowHeight-margin-2*(space+padHeight)-padModeHeight, padModeWidth, padModeHeight);
-    padMode3.setBounds(margin+buttonWidth+biggerSpace+2*(padWidth+space), windowHeight-margin-2*(space+padHeight)-padModeHeight, padModeWidth, padModeHeight);
-    padMode4.setBounds(margin+buttonWidth+biggerSpace+3*(padWidth+space), windowHeight-margin-2*(space+padHeight)-padModeHeight, padModeWidth, padModeHeight);
+    med_chn1.setBounds(chn1_x, hi_chn1.getY()+dialDim+space, dialDim, dialDim);
+    med_chn1.setDoubleClickReturnValue(true, 0);
     
-    // Big Loop buttons
-    loopIn.setBounds(margin, margin, loopBigWidth, loopBigHeight);
-    loopInLabel.setBounds(loopIn.getX(), loopIn.getY()+loopIn.getHeight()+labelSpace, loopBigWidth,labelHeight);
+    lo_chn1.setBounds(chn1_x, med_chn1.getY()+dialDim+space, dialDim, dialDim);
+    lo_chn1.setDoubleClickReturnValue(true, 0);
     
-    loopOut.setBounds(loopIn.getX()+loopIn.getWidth()+space, margin, loopBigWidth, loopBigHeight);
-    loopOutLabel.setBounds(loopOut.getX(), loopOut.getY()+loopOut.getHeight()+labelSpace, loopBigWidth,labelHeight);
+    clr_chn1.setBounds(chn1_x, lo_chn1.getY()+dialDim+space, dialDim, dialDim);
+    clr_chn1.setDoubleClickReturnValue(true, 0);
     
-    // Small Loop Buttons
-    loopRe.setBounds(loopOut.getX()+loopOut.getWidth()+biggerSpace, margin, smallButtonWidth, smallButtonHeight);
-    loopReLabel.setBounds(loopRe.getX(), loopRe.getY()+loopRe.getHeight()+labelSpace, loopBigWidth,labelHeight);
+    fx_chn1.setBounds(chn1_x, clr_chn1.getY()+dialDim+space, dialDim, dialDim);
+    fx_chn1.setDoubleClickReturnValue(true, 0);
     
-    loopHalf.setBounds(loopRe.getX()+loopRe.getWidth()+space, margin, smallButtonWidth, smallButtonHeight);
-    loopHalfLabel.setBounds(loopHalf.getX(), loopHalf.getY()+loopHalf.getHeight()+labelSpace, loopBigWidth,labelHeight);
-    
-    loopDouble.setBounds(loopHalf.getX()+loopHalf.getWidth()+space, margin, smallButtonWidth, smallButtonHeight);
-    loopDoubleLabel.setBounds(loopDouble.getX(), loopDouble.getY()+loopDouble.getHeight()+labelSpace, loopBigWidth,labelHeight);
-    
-    // Channel switch
-    channelSlide.setBounds(windowWidth-margin-channelWidth, margin, channelWidth, channelHeight);
-    channelLabel.setBounds(channelSlide.getX()+0*channelWidth, channelSlide.getY()+channelSlide.getHeight()+labelSpace, channelWidth,labelHeight);
+    // Toggle Buttons
+    fxtoggle_chn1.setBounds(chn1_x, fx_chn1.getY()+dialDim+space, buttonWidth, buttonHeight);
+    cuetoggle_chn1.setBounds(chn1_x, fxtoggle_chn1.getY()+buttonHeight+biggerSpace, buttonWidth, buttonHeight);
     
     // Volume fader
-    volFader.setBounds(windowWidth-margin-faderWidth, windowHeight-margin-faderHeight, faderWidth, faderHeight);
+    volFader.setBounds(chn1_x, windowHeight-margin-faderHeight, faderWidth, faderHeight);
 }
