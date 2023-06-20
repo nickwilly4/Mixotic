@@ -54,3 +54,11 @@ Here is video by Matkat Music that gives a detailed overview on starting or runn
 
 (Include any credits or acknowledgments you would like to give.)
 
+Matkat Music: https://www.youtube.com/@MatkatMusic
+Detailed videos on how to get started with JUCE
+
+DrBruisin: https://www.youtube.com/@drbruisin
+Detailed videos of how to make features using JUCE
+
+Prajwal Mahesh: https://www.youtube.com/@prajwalmahesh90
+Teensy based portable synth project for original inspiration (https://github.com/prajwal1121/Portable-Synth)
