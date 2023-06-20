@@ -31,5 +31,6 @@ private:
     RightDeckComponent rightDeckComponent;
     MixerComponent mixerComponent;
 
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainComponent)
 };

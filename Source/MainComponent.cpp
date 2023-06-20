@@ -3,6 +3,7 @@
 //==============================================================================
 MainComponent::MainComponent()
 {
+
     setSize (1350, 700);
     
     addAndMakeVisible(leftDeckComponent);
@@ -60,4 +61,5 @@ void MainComponent::resized()
     leftDeckComponent.setBounds(area.removeFromLeft(deckAreaWidth));
     rightDeckComponent.setBounds(area.removeFromRight(deckAreaWidth));
     mixerComponent.setBounds(area);
+
 }
