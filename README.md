@@ -28,9 +28,15 @@ Mixotic is an open-source DJ board emulator designed to create a seamless DJing 
 
 (Provide a step-by-step guide on how to install and set up Mixotic.)
 
-1. Step 1
-2. Step 2
-3. ...
+1. Install JUCE framework through terminal
+2. Clone Mixotic GitHub repository
+3. Open "Mixotic.jucer"
+4. In Projucer select your exporter
+5. Open the project with your exporter (Xcode, Visual Studio etc...)
+6. Build (or edit) project in your IDE
+
+Here is video by Matkat Music that gives a detailed overview on starting or running a JUCE program:
+[![Alternate text describing the thumbnail](link-to-thumbnail-image)]([link-to-youtube-video](https://youtu.be/fpYp4nz7CsQ))
 
 ## Usage
 
