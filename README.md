@@ -36,7 +36,7 @@ Mixotic is an open-source DJ board emulator designed to create a seamless DJing 
 6. Build (or edit) project in your IDE
 
 Here is video by Matkat Music that gives a detailed overview on starting or running a JUCE program:
-[![Alternate text describing the thumbnail](link-to-thumbnail-image)]([link-to-youtube-video](https://youtu.be/fpYp4nz7CsQ))
+[![PFM Starting From Scratch MacOS 2021](link-to-thumbnail-image)]([link-to-youtube-video](https://youtu.be/fpYp4nz7CsQ))
 
 ## Usage
 
