@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="qv2WKe" name="Mixotic" projectType="guiapp" useAppConfig="0"
+<JUCERPROJECT id="HYdCfQ" name="Mixotic" projectType="guiapp" useAppConfig="0"
               addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
-  <MAINGROUP id="J9I2sJ" name="Mixotic">
-    <GROUP id="{B82BF995-CE81-3889-8230-FD1BDE18A6B8}" name="Source">
-      <FILE id="lN7Lut" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
-      <FILE id="r4r1GO" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
-      <FILE id="zX5Pma" name="MainComponent.cpp" compile="1" resource="0"
+  <MAINGROUP id="nutRmm" name="Mixotic">
+    <GROUP id="{868FF1FF-C3DA-6D5A-55CE-73E70FEDDF57}" name="Source">
+      <FILE id="bN5Fsi" name="LeftDeckComponent.cpp" compile="1" resource="0"
+            file="Source/LeftDeckComponent.cpp"/>
+      <FILE id="A4C0el" name="LeftDeckComponent.h" compile="0" resource="0"
+            file="Source/LeftDeckComponent.h"/>
+      <FILE id="aon460" name="RightDeckComponent.cpp" compile="1" resource="0"
+            file="Source/RightDeckComponent.cpp"/>
+      <FILE id="R12cdi" name="RightDeckComponent.h" compile="0" resource="0"
+            file="Source/RightDeckComponent.h"/>
+      <FILE id="cYzI46" name="MixerComponent.h" compile="0" resource="0"
+            file="Source/MixerComponent.h"/>
+      <FILE id="WkWVye" name="MixerComponent.cpp" compile="1" resource="0"
+            file="Source/MixerComponent.cpp"/>
+      <FILE id="CoNwU3" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="CijA5a" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="i3ib4Q" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/MainComponent.cpp"/>
     </GROUP>
   </MAINGROUP>
@@ -14,23 +26,35 @@
   <EXPORTFORMATS>
     <XCODE_MAC targetFolder="Builds/MacOSX">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="Mixotic"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="Mixotic"/>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="NewProject"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="NewProject"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
-        <MODULEPATH id="juce_core" path="../../JUCE/modules"/>
-        <MODULEPATH id="juce_data_structures" path="../../JUCE/modules"/>
-        <MODULEPATH id="juce_events" path="../../JUCE/modules"/>
-        <MODULEPATH id="juce_graphics" path="../../JUCE/modules"/>
-        <MODULEPATH id="juce_gui_basics" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_core" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../../../JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
   </EXPORTFORMATS>
   <MODULES>
+    <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
   </MODULES>
 </JUCERPROJECT>
