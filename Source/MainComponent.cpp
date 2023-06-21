@@ -2,7 +2,7 @@
 
 //==============================================================================
 MainComponent::MainComponent()
-    : channel1("1"), channel2("2"), channel3("3"), channel4("4")
+    : channel1("1"), channel2("2"), channel3("3"), channel4("4"),leftDeckComponent("1-3"),rightDeckComponent("2-4")
 {
     setSize (leftDeckComponent.getWidth()*2+80*4, 700);
     

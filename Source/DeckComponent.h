@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
- LeftDeckComponent.h
-    Created: 16 Jun 2023 8:17:18pm
+    DeckComponent.h
+    Created: 21 Jun 2023 5:37:24pm
     Author:  Nick Aichholz
 
   ==============================================================================
@@ -20,12 +20,12 @@
 //std::unique_ptr<juce::FileChooser> chooser;
 //juce::AudioFormatManager formatManager;
 
-class LeftDeckComponent  : public juce::Component//,public juce::ChangeListener,public juce::Timer
-{
+class DeckComponent  : public juce::Component {
+    std::string channelNum;
 public:
     //==============================================================================
-    LeftDeckComponent();
-    ~LeftDeckComponent() override;
+    DeckComponent(const std::string& channelNumber);
+    ~DeckComponent() override;
 
     //==============================================================================
     void paint (juce::Graphics&) override;
@@ -80,7 +80,7 @@ private:
     //std::unique_ptr<juce::FileChooser> chooser;
     //juce::AudioFormatManager formatManager;
     
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LeftDeckComponent)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DeckComponent)
     
 
 };

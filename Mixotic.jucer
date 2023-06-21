@@ -6,16 +6,11 @@
     <GROUP id="{868FF1FF-C3DA-6D5A-55CE-73E70FEDDF57}" name="Source">
       <FILE id="MGd7va" name="EQControlColumn.cpp" compile="1" resource="0"
             file="Source/EQControlColumn.cpp"/>
+      <FILE id="eHYeo0" name="DeckComponent.cpp" compile="1" resource="0"
+            file="Source/DeckComponent.cpp"/>
+      <FILE id="VmPSop" name="DeckComponent.h" compile="0" resource="0" file="Source/DeckComponent.h"/>
       <FILE id="hAmfYg" name="EQControlColumn.h" compile="0" resource="0"
             file="Source/EQControlColumn.h"/>
-      <FILE id="bN5Fsi" name="LeftDeckComponent.cpp" compile="1" resource="0"
-            file="Source/LeftDeckComponent.cpp"/>
-      <FILE id="A4C0el" name="LeftDeckComponent.h" compile="0" resource="0"
-            file="Source/LeftDeckComponent.h"/>
-      <FILE id="aon460" name="RightDeckComponent.cpp" compile="1" resource="0"
-            file="Source/RightDeckComponent.cpp"/>
-      <FILE id="R12cdi" name="RightDeckComponent.h" compile="0" resource="0"
-            file="Source/RightDeckComponent.h"/>
       <FILE id="CoNwU3" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
       <FILE id="CijA5a" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
       <FILE id="i3ib4Q" name="MainComponent.cpp" compile="1" resource="0"

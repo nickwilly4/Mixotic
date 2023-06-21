@@ -1,14 +1,14 @@
 /*
   ==============================================================================
 
-    RightDeckComponent.cpp
-    Created: 16 Jun 2023 8:25:10pm
+    DeckComponent.cpp
+    Created: 21 Jun 2023 5:37:24pm
     Author:  Nick Aichholz
 
   ==============================================================================
 */
 
-#include "RightDeckComponent.h"
+#include "DeckComponent.h"
 
 //==============================================================================
 //std::unique_ptr<juce::FileChooser> chooser;
@@ -17,7 +17,8 @@
 // 'Global' Variables
 
 
-RightDeckComponent::RightDeckComponent()
+DeckComponent::DeckComponent(const std::string& channelNumber)
+: channelNum(channelNumber)
 {
     auto windowWidth = 450;
     auto windowHeight = 700;
@@ -179,7 +180,7 @@ RightDeckComponent::RightDeckComponent()
     loopDoubleLabel.setText("2", juce::dontSendNotification);
     
     // Channel switch
-    channelLabel.setText("2#4", juce::dontSendNotification);
+    channelLabel.setText(channelNumber, juce::dontSendNotification);
     addAndMakeVisible(channelLabel);
     
     addAndMakeVisible(channelSlide);
@@ -200,12 +201,12 @@ RightDeckComponent::RightDeckComponent()
     jog.setRange(0, 100);
 }
 
-RightDeckComponent::~RightDeckComponent()
+DeckComponent::~DeckComponent()
 {
 }
 
 //==============================================================================
-void RightDeckComponent::paint (juce::Graphics& g)
+void DeckComponent::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
@@ -215,13 +216,14 @@ void RightDeckComponent::paint (juce::Graphics& g)
     //g.drawText ("New Graphics!", getLocalBounds(), juce::Justification::centred, true);
 }
 
-void RightDeckComponent::resized()
+void DeckComponent::resized()
 {
-    auto windowWidth = 450;
-    auto windowHeight = 700;
     // This is called when the MainComponent is resized.
     // If you add any child components, this is where you should
     // update their positions.\
+    
+    auto windowWidth = 450;
+    auto windowHeight = 700;
     
     // Convenient
     auto margin = 10;
@@ -312,3 +314,4 @@ void RightDeckComponent::resized()
     //jog.setDoubleClickReturnValue(true, 0);
     
 }
+

@@ -1,8 +1,9 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "LeftDeckComponent.h"
-#include "RightDeckComponent.h"
+//#include "LeftDeckComponent.h"
+//#include "RightDeckComponent.h"
+#include "DeckComponent.h"
 #include "EQControlColumn.h"
 
 //==============================================================================
@@ -27,8 +28,8 @@ public:
     void resized() override;
 
 private:
-    LeftDeckComponent leftDeckComponent;
-    RightDeckComponent rightDeckComponent;
+    DeckComponent leftDeckComponent;
+    DeckComponent rightDeckComponent;
 
     EQControlColumn channel1;
     EQControlColumn channel2;
