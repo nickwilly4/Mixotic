@@ -9,28 +9,20 @@
 */
 
 #include "EQControlColumn.h"
-/*
-  ==============================================================================
-
-    MixerComponent.cpp
-    Created: 16 Jun 2023 8:16:01pm
-    Author:  Nick Aichholz
-
-  ==============================================================================
-*/
 
 // 'Global' Variables
-auto EQwindowWidth = 450;
+auto EQwindowWidth = 80; // 2*margin+Width
 auto EQwindowHeight = 700;
 
-EQControlColumn::EQControlColumn()
+EQControlColumn::EQControlColumn(const std::string& columnNumber)
+    : columnNum(columnNumber)
 {
     // Window
     setSize (EQwindowWidth, EQwindowHeight);
     
     // ========Load ========
     addAndMakeVisible(load_chn);
-    load_chn.setButtonText("Load N");
+    load_chn.setButtonText("Load " +columnNumber);
     load_chn.onClick = [&]() {printf("test");};
     // ========Dials ========
     addAndMakeVisible(trim_chn);
@@ -65,14 +57,14 @@ EQControlColumn::EQControlColumn()
     // ========Toggle Buttons ========
     addAndMakeVisible(fxtoggle_chn);
     fxtoggle_chn.setClickingTogglesState(true);
-    fxtoggle_chn.setButtonText("FX N");
+    fxtoggle_chn.setButtonText("FX "+columnNumber);
     fxtoggle_chn.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::green);
     fxtoggle_chn.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
     fxtoggle_chn.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
     fxtoggle_chn.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
     //
     addAndMakeVisible(cuetoggle_chn);
-    cuetoggle_chn.setButtonText("CUE N");
+    cuetoggle_chn.setButtonText("CUE "+columnNumber);
     cuetoggle_chn.setClickingTogglesState(true);
     cuetoggle_chn.setColour(juce::TextButton::ColourIds::buttonOnColourId, juce::Colours::red);
     cuetoggle_chn.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
@@ -116,19 +108,19 @@ void EQControlColumn::resized()
     
     //auto labelHeight = 10;
     //auto labelSpace = 10;
-    
+    auto Width = 60;
     // Button
-    auto buttonWidth = 60;
+    auto buttonWidth = Width;
     auto buttonHeight = buttonWidth/3;
     
     // Volume fader
-    auto faderWidth = 50;
+    auto faderWidth = Width;
     auto faderHeight = 150;
     
     // Dial
-    auto dialDim = 60;
+    auto dialDim = Width;
     
-    auto chn_x = margin+1*(dialDim+space); // Order of the channels margin
+    auto chn_x = margin; // Order of the channels margin
     // ========Load ========
     load_chn.setBounds(chn_x, margin, buttonWidth, buttonHeight);
     // ========Dials ========

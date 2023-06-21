@@ -1,9 +1,9 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "MixerComponent.h"
 #include "LeftDeckComponent.h"
 #include "RightDeckComponent.h"
+#include "EQControlColumn.h"
 
 //==============================================================================
 /*
@@ -29,8 +29,10 @@ public:
 private:
     LeftDeckComponent leftDeckComponent;
     RightDeckComponent rightDeckComponent;
-    MixerComponent mixerComponent;
 
-
+    EQControlColumn channel1;
+    EQControlColumn channel2;
+    EQControlColumn channel3;
+    EQControlColumn channel4;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainComponent)
 };
