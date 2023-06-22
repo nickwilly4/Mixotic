@@ -10,18 +10,12 @@
 
 #include "DeckComponent.h"
 
-//==============================================================================
-//std::unique_ptr<juce::FileChooser> chooser;
-//juce::AudioFormatManager formatManager;
-
-// 'Global' Variables
-
-
 DeckComponent::DeckComponent(const std::string& channelNumber)
 : channelNum(channelNumber)
 {
     auto windowWidth = 450;
     auto windowHeight = 700;
+    
     // Window
     setSize (windowWidth, windowHeight);
     

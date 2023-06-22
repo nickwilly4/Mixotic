@@ -1,16 +1,10 @@
 #pragma once
 
 #include <JuceHeader.h>
-//#include "LeftDeckComponent.h"
-//#include "RightDeckComponent.h"
 #include "DeckComponent.h"
 #include "EQControlColumn.h"
 
-//==============================================================================
-/*
-    This component lives inside our window, and this is where you should put all
-    your controls and content.
-*/
+
 class MainComponent  : public juce::AudioAppComponent
 {
 public:
