@@ -1,7 +1,7 @@
 /*
   ==============================================================================
 
- EQControlColumn.h
+    EQControlColumn.h
     Created: 16 Jun 2023 8:17:18pm
     Author:  Nick Aichholz
 
@@ -9,13 +9,13 @@
 */
 
 #pragma once
-
 #include <JuceHeader.h>
 
 //==============================================================================
 class MainComponent; // Forward declaration to avoid circular dependency
 
-class EQControlColumn : public juce::Component {
+class EQControlColumn : public juce::Component
+{
     std::string columnNum;
     MainComponent& mainComponent; // Add this member variable
     

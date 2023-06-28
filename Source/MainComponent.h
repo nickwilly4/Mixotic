@@ -26,7 +26,7 @@ public:
     void resized() override;
     
     void onEQControlColumnLoadClicked(const std::string& columnNumber);
-    void playButtonClicked();
+    void playButtonClicked(const std::string& channelNumber);
     
 private:
     DeckComponent leftDeckComponent;

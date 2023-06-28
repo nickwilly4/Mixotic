@@ -2,7 +2,7 @@
 
 //==============================================================================
 MainComponent::MainComponent()
-    : channel1("1", *this), channel2("2", *this), channel3("3", *this), channel4("4", *this), leftDeckComponent("1-3"), rightDeckComponent("2-4")
+    : channel1("1", *this), channel2("2", *this), channel3("3", *this), channel4("4", *this), leftDeckComponent("1-3", *this), rightDeckComponent("2-4", *this)
 {
     setSize (leftDeckComponent.getWidth()*2+80*4, 700);
     
@@ -144,7 +144,7 @@ void MainComponent::changeState(TransportState newState)
     }
 }
 
-void MainComponent::playButtonClicked()
+void MainComponent::playButtonClicked(const std::string& channelNumber)
 {
     if ((state == Stopped) || (state == Paused))
         changeState(Starting);

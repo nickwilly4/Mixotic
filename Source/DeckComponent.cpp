@@ -9,9 +9,14 @@
 */
 
 #include "DeckComponent.h"
+#include "MainComponent.h"
 
-DeckComponent::DeckComponent(const std::string& channelNumber)
-: channelNum(channelNumber), currentMode(Mode::Mode1), backgroundColor(juce::Colours::blue)
+
+
+
+
+DeckComponent::DeckComponent(const std::string& channelNumber, MainComponent& mainComponentRef)
+: channelNum(channelNumber), currentMode(Mode::Mode1), backgroundColor(juce::Colours::blue), mainComponent(mainComponentRef)
 {
     auto windowWidth = 450;
     auto windowHeight = 700;
@@ -27,6 +32,9 @@ DeckComponent::DeckComponent(const std::string& channelNumber)
     playPause.setColour(juce::TextButton::ColourIds::buttonColourId, juce::Colours::dimgrey);
     playPause.setColour(juce::TextButton::ColourIds::textColourOnId, juce::Colours::black);
     playPause.setColour(juce::TextButton::ColourIds::textColourOffId, juce::Colours::black);
+    playPause.onClick = [channelNumber, &mainComponentRef]() {
+        mainComponentRef.playButtonClicked(channelNumber);
+    };
     
     // Cue Button
     addAndMakeVisible(cue);

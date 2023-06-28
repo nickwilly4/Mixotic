@@ -1,21 +1,28 @@
 /*
   ==============================================================================
+ 
     DeckComponent.h
     Created: 21 Jun 2023 5:37:24pm
     Author:  Nick Aichholz
+ 
   ==============================================================================
 */
 
 #pragma once
 #include <JuceHeader.h>
 
+//==============================================================================
+class MainComponent; // Forward declaration to avoid circular dependency
+
 class DeckComponent  : public juce::Component, public juce::Slider::Listener
 {
     std::string channelNum;
+    MainComponent& mainComponent; // Add this member variable
+    
 public:
     enum Mode { Mode1, Mode2 };
     //==============================================================================
-    DeckComponent(const std::string& channelNumber);
+    DeckComponent(const std::string& channelNumber, MainComponent& mainComponentRef);
     ~DeckComponent() override;
 
     //==============================================================================
