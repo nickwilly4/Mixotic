@@ -210,11 +210,13 @@ void DeckComponent::sliderValueChanged(juce::Slider* slider)
         {
             currentMode = Mode::Mode1;
             backgroundColor = juce::Colours::blue;
+            std::cout << "Deck " << channelNum << " is in " << currentMode << " mode!" << std::endl;
         }
         else
         {
             currentMode = Mode::Mode2;
             backgroundColor = juce::Colours::red;
+            std::cout << "Deck " << channelNum << " is in " << currentMode << " mode!" << std::endl;
         }
 
         // Repaint the component to reflect the new background color
@@ -222,7 +224,7 @@ void DeckComponent::sliderValueChanged(juce::Slider* slider)
     }
 }
 
-void DeckComponent::setMode(Mode newMode) {
+/*void DeckComponent::setMode(Mode newMode) {
     currentMode = newMode;
     switch(currentMode) {
         case Mode1:
@@ -237,7 +239,7 @@ void DeckComponent::setMode(Mode newMode) {
             break;
     }
     repaint(); // Request a repaint since the background color has changed
-}
+}*/
 
 //==============================================================================
 void DeckComponent::paint (juce::Graphics& g)
