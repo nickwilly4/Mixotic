@@ -27,7 +27,6 @@ public:
     void resized() override;
     
 private:
-    void LoadSong(const std::string& columnNumber);
     // Load
     juce::TextButton load_chn;
     // Dials
