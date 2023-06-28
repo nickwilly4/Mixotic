@@ -18,7 +18,8 @@ class EQControlColumn : public juce::Component
 {
     std::string columnNum;
     MainComponent& mainComponent; // Add this member variable
-    
+
+//==============================================================================
 public:
     EQControlColumn(const std::string& columnNumber, MainComponent& mainComponentRef);
     ~EQControlColumn() override;
@@ -26,6 +27,7 @@ public:
     void paint (juce::Graphics&) override;
     void resized() override;
     
+//==============================================================================
 private:
     // Load
     juce::TextButton load_chn;

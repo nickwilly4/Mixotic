@@ -15,6 +15,7 @@
 
 
 
+//==============================================================================
 DeckComponent::DeckComponent(const std::string& channelNumber, MainComponent& mainComponentRef)
 : channelNum(channelNumber), currentMode(Mode::Mode1), backgroundColor(juce::Colours::blue), mainComponent(mainComponentRef)
 {
@@ -261,10 +262,6 @@ void DeckComponent::paint (juce::Graphics& g)
 
 void DeckComponent::resized()
 {
-    // This is called when the MainComponent is resized.
-    // If you add any child components, this is where you should
-    // update their positions.\
-    
     auto windowWidth = 450;
     auto windowHeight = 700;
     

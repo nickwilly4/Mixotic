@@ -19,9 +19,9 @@ class DeckComponent  : public juce::Component, public juce::Slider::Listener
     std::string channelNum;
     MainComponent& mainComponent; // Add this member variable
     
+//==============================================================================
 public:
     enum Mode { Mode1, Mode2 };
-    //==============================================================================
     DeckComponent(const std::string& channelNumber, MainComponent& mainComponentRef);
     ~DeckComponent() override;
 
@@ -30,8 +30,8 @@ public:
     void paint (juce::Graphics&) override;
     void resized() override;
     
+//==============================================================================
 private:
-    //==============================================================================
     Mode currentMode;
     juce::Colour backgroundColor;
     
@@ -75,5 +75,6 @@ private:
     
     // Volume fader
     juce::Slider volFader;
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DeckComponent)
 };

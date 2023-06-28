@@ -11,10 +11,11 @@
 #include "EQControlColumn.h"
 #include "MainComponent.h"
 
-// 'Global' Variables
+// Local Variables
 auto EQwindowWidth = 80; // 2*margin+Width
 auto EQwindowHeight = 700;
 
+//==============================================================================
 EQControlColumn::EQControlColumn(const std::string& columnNumber, MainComponent& mainComponentRef)
     : columnNum(columnNumber), mainComponent(mainComponentRef) // Initialize mainComponent here
 {

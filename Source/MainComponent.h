@@ -1,3 +1,13 @@
+/*
+  ==============================================================================
+
+    MainComponent.h
+    Created: 13 Jun 2023 5:37:24pm
+    Author:  Nick Aichholz
+
+  ==============================================================================
+*/
+
 #pragma once
 
 #include <JuceHeader.h>
@@ -57,5 +67,6 @@ private:
     juce::AudioTransportSource transportSource;
     TransportState state;
     //
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MainComponent)
 };
