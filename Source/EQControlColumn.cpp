@@ -24,12 +24,10 @@ EQControlColumn::EQControlColumn(const std::string& columnNumber, MainComponent&
     // ========Load ========
     addAndMakeVisible(load_chn);
     load_chn.setButtonText("Load " +columnNumber);
-    //load_chn.onClick = [&]() {
+    //load_chn.onClick = [columnNumber, &mainComponentRef]() {
     //    mainComponentRef.onEQControlColumnLoadClicked(columnNumber);
     //};
-    load_chn.onClick = [columnNumber, &mainComponentRef]() {
-        mainComponentRef.onEQControlColumnLoadClicked(columnNumber);
-    };
+    load_chn.onClick = [=]() {LoadSong(columnNumber);};
     // ========Dials ========
     addAndMakeVisible(trim_chn);
     trim_chn.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalDrag);
@@ -84,6 +82,11 @@ EQControlColumn::EQControlColumn(const std::string& columnNumber, MainComponent&
     volFader_chn.setRange(-24, 24,0.1);
     
     
+}
+
+void EQControlColumn::LoadSong(const std::string& columnNumber) {
+    // Do something when the Load button in EQControlColumn is clicked
+    std::cout << "Load song in EQ Control Column " << columnNumber << " was clicked!" << std::endl;
 }
 
 EQControlColumn::~EQControlColumn()

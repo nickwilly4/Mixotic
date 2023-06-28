@@ -11,15 +11,8 @@
 #pragma once
 
 #include <JuceHeader.h>
-//#include "MainComponent.h"
 
 //==============================================================================
-/*
-    This component lives inside our window, and this is where you should put all
-    your controls and content.
-*/
-//std::unique_ptr<juce::FileChooser> chooser;
-//juce::AudioFormatManager formatManager;
 class MainComponent; // Forward declaration to avoid circular dependency
 
 class EQControlColumn : public juce::Component {
@@ -34,6 +27,7 @@ public:
     void resized() override;
     
 private:
+    void LoadSong(const std::string& columnNumber);
     // Load
     juce::TextButton load_chn;
     // Dials
