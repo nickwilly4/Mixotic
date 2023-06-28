@@ -11,7 +11,7 @@
 #include "DeckComponent.h"
 
 DeckComponent::DeckComponent(const std::string& channelNumber)
-: channelNum(channelNumber)
+: channelNum(channelNumber), currentMode(Mode::Mode1), backgroundColor(juce::Colours::blue)
 {
     auto windowWidth = 450;
     auto windowHeight = 700;
@@ -181,6 +181,7 @@ DeckComponent::DeckComponent(const std::string& channelNumber)
     channelSlide.setSliderStyle(juce::Slider::SliderStyle::LinearHorizontal);
     channelSlide.setTextBoxStyle(juce::Slider::NoTextBox, false, 72, 32);
     channelSlide.setRange(0, 1,1);
+    channelSlide.addListener(this);
     
     // Volume fader
     addAndMakeVisible(volFader);
@@ -197,17 +198,55 @@ DeckComponent::DeckComponent(const std::string& channelNumber)
 
 DeckComponent::~DeckComponent()
 {
+    channelSlide.removeListener(this);
+}
+
+void DeckComponent::sliderValueChanged(juce::Slider* slider)
+{
+    if (slider == &channelSlide)
+    {
+        // Check the value of the channelSlide slider and switch modes accordingly
+        if (channelSlide.getValue() == 0)
+        {
+            currentMode = Mode::Mode1;
+            backgroundColor = juce::Colours::blue;
+        }
+        else
+        {
+            currentMode = Mode::Mode2;
+            backgroundColor = juce::Colours::red;
+        }
+
+        // Repaint the component to reflect the new background color
+        repaint();
+    }
+}
+
+void DeckComponent::setMode(Mode newMode) {
+    currentMode = newMode;
+    switch(currentMode) {
+        case Mode1:
+            backgroundColor = juce::Colours::red;
+            std::cout << "Deck " << channelNum << " is in " << currentMode << " mode!" << std::endl;
+            // Code to set up Mode 1
+            break;
+        case Mode2:
+            backgroundColor = juce::Colours::blue;
+            std::cout << "Deck " << channelNum << " is in " << currentMode << " mode!" << std::endl;
+            // Code to set up Mode 2
+            break;
+    }
+    repaint(); // Request a repaint since the background color has changed
 }
 
 //==============================================================================
 void DeckComponent::paint (juce::Graphics& g)
 {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
+    // Fill the background with the current background color
+    g.fillAll(backgroundColor);
 
-    //g.setFont (juce::Font (48.0f));
-    //g.setColour (juce::Colours::green);
-    //g.drawText ("New Graphics!", getLocalBounds(), juce::Justification::centred, true);
+    // Rest of your painting code
+    // ...
 }
 
 void DeckComponent::resized()
@@ -298,6 +337,8 @@ void DeckComponent::resized()
     // Channel switch
     channelSlide.setBounds(windowWidth-margin-channelWidth, margin, channelWidth, channelHeight);
     channelLabel.setBounds(channelSlide.getX()+0*channelWidth, channelSlide.getY()+channelSlide.getHeight()+labelSpace, channelWidth,labelHeight);
+    channelSlide.setRange(0, 1); // Assuming two modes: 0 for Mode1, 1 for Mode2
+    channelSlide.setValue(0);    // Set the initial value to Mode1
     
     // Volume fader
     volFader.setBounds(windowWidth-margin-faderWidth, windowHeight-margin-faderHeight, faderWidth, faderHeight);

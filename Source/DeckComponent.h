@@ -1,42 +1,33 @@
 /*
   ==============================================================================
-
     DeckComponent.h
     Created: 21 Jun 2023 5:37:24pm
     Author:  Nick Aichholz
-
   ==============================================================================
 */
 
 #pragma once
-
 #include <JuceHeader.h>
 
-//==============================================================================
-/*
-    This component lives inside our window, and this is where you should put all
-    your controls and content.
-*/
-//std::unique_ptr<juce::FileChooser> chooser;
-//juce::AudioFormatManager formatManager;
-
-class DeckComponent  : public juce::Component {
+class DeckComponent  : public juce::Component, public juce::Slider::Listener
+{
     std::string channelNum;
 public:
+    enum Mode { Mode1, Mode2 };
     //==============================================================================
     DeckComponent(const std::string& channelNumber);
     ~DeckComponent() override;
 
     //==============================================================================
+    void setMode(Mode newMode);
     void paint (juce::Graphics&) override;
     void resized() override;
     
-    //formatManager.registerBasicFormats();
-    //transportSource.addChangeListener (this);
-    
 private:
     //==============================================================================
-    // Your private member variables go here...
+    Mode currentMode;
+    juce::Colour backgroundColor;
+    
     juce::TextButton playPause;
     juce::TextButton cue;
     
@@ -70,17 +61,12 @@ private:
     
     // Channel switch
     juce::Slider channelSlide;
+    void sliderValueChanged(juce::Slider* slider) override;
         juce::Label channelLabel;
     
     juce::Slider jog;
     
     // Volume fader
     juce::Slider volFader;
-    
-    //std::unique_ptr<juce::FileChooser> chooser;
-    //juce::AudioFormatManager formatManager;
-    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (DeckComponent)
-    
-
 };
