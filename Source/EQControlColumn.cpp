@@ -24,10 +24,10 @@ EQControlColumn::EQControlColumn(const std::string& columnNumber, MainComponent&
     // ========Load ========
     addAndMakeVisible(load_chn);
     load_chn.setButtonText("Load " +columnNumber);
-    //load_chn.onClick = [columnNumber, &mainComponentRef]() {
-    //    mainComponentRef.onEQControlColumnLoadClicked(columnNumber);
-    //};
-    load_chn.onClick = [=]() {LoadSong(columnNumber);};
+    load_chn.onClick = [columnNumber, &mainComponentRef]() {
+        mainComponentRef.onEQControlColumnLoadClicked(columnNumber);
+    };
+    //load_chn.onClick = [=]() {LoadSong(columnNumber);};
     // ========Dials ========
     addAndMakeVisible(trim_chn);
     trim_chn.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalDrag);
