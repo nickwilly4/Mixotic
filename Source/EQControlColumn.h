@@ -11,6 +11,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+//#include "MainComponent.h"
 
 //==============================================================================
 /*
@@ -19,11 +20,14 @@
 */
 //std::unique_ptr<juce::FileChooser> chooser;
 //juce::AudioFormatManager formatManager;
+class MainComponent; // Forward declaration to avoid circular dependency
 
-class EQControlColumn  : public juce::Component {
+class EQControlColumn : public juce::Component {
     std::string columnNum;
+    MainComponent& mainComponent; // Add this member variable
+    
 public:
-    EQControlColumn(const std::string& columnNumber);
+    EQControlColumn(const std::string& columnNumber, MainComponent& mainComponentRef);
     ~EQControlColumn() override;
 
     void paint (juce::Graphics&) override;

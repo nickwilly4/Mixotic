@@ -20,7 +20,9 @@ public:
     //==============================================================================
     void paint (juce::Graphics& g) override;
     void resized() override;
-
+    
+    void onEQControlColumnLoadClicked(const std::string& columnNumber);
+    
 private:
     DeckComponent leftDeckComponent;
     DeckComponent rightDeckComponent;

@@ -2,7 +2,7 @@
 
 //==============================================================================
 MainComponent::MainComponent()
-    : channel1("1"), channel2("2"), channel3("3"), channel4("4"),leftDeckComponent("1-3"),rightDeckComponent("2-4")
+    : channel1("1", *this), channel2("2", *this), channel3("3", *this), channel4("4", *this), leftDeckComponent("1-3"), rightDeckComponent("2-4")
 {
     setSize (leftDeckComponent.getWidth()*2+80*4, 700);
     
@@ -30,6 +30,11 @@ void MainComponent::prepareToPlay (int samplesPerBlockExpected, double sampleRat
     // but be careful - it will be called on the audio thread, not the GUI thread.
 
     // For more details, see the help for AudioProcessor::prepareToPlay()
+}
+
+void MainComponent::onEQControlColumnLoadClicked(const std::string& columnNumber) {
+    // Do something when the Load button in EQControlColumn is clicked
+    std::cout << "Load button in EQ Control Column " << columnNumber << " was clicked!" << std::endl;
 }
 
 void MainComponent::getNextAudioBlock (const juce::AudioSourceChannelInfo& bufferToFill)

@@ -9,13 +9,14 @@
 */
 
 #include "EQControlColumn.h"
+#include "MainComponent.h"
 
 // 'Global' Variables
 auto EQwindowWidth = 80; // 2*margin+Width
 auto EQwindowHeight = 700;
 
-EQControlColumn::EQControlColumn(const std::string& columnNumber)
-    : columnNum(columnNumber)
+EQControlColumn::EQControlColumn(const std::string& columnNumber, MainComponent& mainComponentRef)
+    : columnNum(columnNumber), mainComponent(mainComponentRef) // Initialize mainComponent here
 {
     // Window
     setSize (EQwindowWidth, EQwindowHeight);
@@ -23,7 +24,12 @@ EQControlColumn::EQControlColumn(const std::string& columnNumber)
     // ========Load ========
     addAndMakeVisible(load_chn);
     load_chn.setButtonText("Load " +columnNumber);
-    load_chn.onClick = [&]() {printf("test");};
+    //load_chn.onClick = [&]() {
+    //    mainComponentRef.onEQControlColumnLoadClicked(columnNumber);
+    //};
+    load_chn.onClick = [columnNumber, &mainComponentRef]() {
+        mainComponentRef.onEQControlColumnLoadClicked(columnNumber);
+    };
     // ========Dials ========
     addAndMakeVisible(trim_chn);
     trim_chn.setSliderStyle(juce::Slider::SliderStyle::RotaryHorizontalDrag);
