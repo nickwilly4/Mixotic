@@ -38,9 +38,13 @@ public:
     void onEQControlColumnLoadClicked(const std::string& columnNumber);
     void playButtonClicked(const std::string& channelNumber);
     
+    
 private:
-    DeckComponent leftDeckComponent;
-    DeckComponent rightDeckComponent;
+    DeckComponent Deck1;
+    DeckComponent Deck3;
+    
+    DeckComponent Deck2;
+    DeckComponent Deck4;
 
     EQControlColumn channel1;
     EQControlColumn channel2;
@@ -57,7 +61,7 @@ private:
         Paused,
         Stopping
     };
-
+    
     void changeState(TransportState newState);
 
     std::unique_ptr<juce::FileChooser> chooser;
@@ -65,6 +69,7 @@ private:
     juce::AudioFormatManager formatManager;
     std::unique_ptr<juce::AudioFormatReaderSource> readerSource;
     juce::AudioTransportSource transportSource;
+    
     TransportState state;
     //
     

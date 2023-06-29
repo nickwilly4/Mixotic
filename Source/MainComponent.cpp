@@ -12,12 +12,21 @@
 
 //==============================================================================
 MainComponent::MainComponent()
-    : channel1("1", *this), channel2("2", *this), channel3("3", *this), channel4("4", *this), leftDeckComponent("1-3", *this), rightDeckComponent("2-4", *this)
+    :   channel1("1", *this),
+        channel2("2", *this),
+        channel3("3", *this),
+        channel4("4", *this),
+        Deck1("1", *this),
+        Deck2("2", *this),
+        Deck3("3", *this),
+        Deck4("4", *this)
 {
-    setSize (leftDeckComponent.getWidth()*2+80*4, 700);
+    setSize (Deck1.getWidth()*2+80*4, 700);
     
-    addAndMakeVisible(leftDeckComponent);
-    addAndMakeVisible(rightDeckComponent);
+    addAndMakeVisible(Deck1);
+    addAndMakeVisible(Deck2);
+    //addAndMakeVisible(Deck3);
+    //addAndMakeVisible(Deck4);
     addAndMakeVisible(channel1);
     addAndMakeVisible(channel2);
     addAndMakeVisible(channel3);
@@ -60,17 +69,26 @@ void MainComponent::releaseResources()
 void MainComponent::paint (juce::Graphics& g)
 {
     g.fillAll (juce::Colours::grey); // Clear the background
+    //if (Deck3.channelSlide.getValue() == 1) {
+    //    Deck3.setBounds(Deck1.getHeight(), 0, Deck1.getWidth(), Deck1.getHeight());
+    //    repaint();
+    //}
 }
 
 void MainComponent::resized()
 {
-    leftDeckComponent.setBounds(0, 0, leftDeckComponent.getWidth(), leftDeckComponent.getHeight());
-    rightDeckComponent.setBounds(leftDeckComponent.getWidth()+80*4, 0, rightDeckComponent.getWidth(), leftDeckComponent.getHeight());
-    
-    channel1.setBounds(leftDeckComponent.getWidth()+80, 0, channel1.getWidth(), channel1.getHeight());
-    channel2.setBounds(leftDeckComponent.getWidth()+160, 0, channel2.getWidth(), channel2.getHeight());
-    channel3.setBounds(leftDeckComponent.getWidth()+0, 0, channel3.getWidth(), channel3.getHeight());
-    channel4.setBounds(leftDeckComponent.getWidth()+240, 0, channel4.getWidth(), channel4.getHeight());
+    Deck1.setBounds(0, 0, Deck1.getWidth(), Deck1.getHeight());
+    std::cout << Deck1.getHeight();
+    //Deck3.setBounds(0, 0, Deck1.getWidth(), Deck1.getHeight());
+
+    Deck2.setBounds(Deck1.getWidth()+80*4, 0, Deck2.getWidth(), Deck1.getHeight());
+    //Deck4.setBounds(Deck1.getWidth()+80*4, 0, Deck2.getWidth(), Deck1.getHeight());
+
+    channel1.setBounds(Deck1.getWidth()+80, 0, channel1.getWidth(), channel1.getHeight());
+    channel2.setBounds(Deck1.getWidth()+160, 0, channel2.getWidth(), channel2.getHeight());
+    channel3.setBounds(Deck1.getWidth()+0, 0, channel3.getWidth(), channel3.getHeight());
+    channel4.setBounds(Deck1.getWidth()+240, 0, channel4.getWidth(), channel4.getHeight());
+
 }
 //==============================================================================
 void MainComponent::changeListenerCallback(juce::ChangeBroadcaster* source)
@@ -128,7 +146,6 @@ void MainComponent::changeState(TransportState newState)
         switch (state)
         {
         case Stopped:
-            //playButton.setButtonText("Play");
             transportSource.setPosition(0.0);
             break;
 
@@ -144,7 +161,6 @@ void MainComponent::changeState(TransportState newState)
             break;
 
         case Paused:
-            //playButton.setButtonText("Resume");
             break;
 
         case Stopping:

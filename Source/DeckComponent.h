@@ -30,7 +30,10 @@ public:
     void paint (juce::Graphics&) override;
     void resized() override;
     
+    Mode getMode() const;
+
 //==============================================================================
+    juce::Slider channelSlide;
 private:
     Mode currentMode;
     juce::Colour backgroundColor;
@@ -67,7 +70,7 @@ private:
         juce::Label loopDoubleLabel;
     
     // Channel switch
-    juce::Slider channelSlide;
+    //juce::Slider channelSlide;
     void sliderValueChanged(juce::Slider* slider) override;
         juce::Label channelLabel;
     

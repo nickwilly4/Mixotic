@@ -225,6 +225,7 @@ void DeckComponent::sliderValueChanged(juce::Slider* slider)
         {
             currentMode = Mode::Mode2;
             backgroundColor = juce::Colours::red;
+            //setVisible(false);
             std::cout << "Deck " << channelNum << " is in " << currentMode << " mode!" << std::endl;
         }
 
@@ -233,22 +234,25 @@ void DeckComponent::sliderValueChanged(juce::Slider* slider)
     }
 }
 
-/*void DeckComponent::setMode(Mode newMode) {
+void DeckComponent::setMode(Mode newMode)
+{
     currentMode = newMode;
-    switch(currentMode) {
-        case Mode1:
+    switch (currentMode)
+    {
+        case Mode::Mode1:
             backgroundColor = juce::Colours::red;
             std::cout << "Deck " << channelNum << " is in " << currentMode << " mode!" << std::endl;
             // Code to set up Mode 1
             break;
-        case Mode2:
+        case Mode::Mode2:
             backgroundColor = juce::Colours::blue;
             std::cout << "Deck " << channelNum << " is in " << currentMode << " mode!" << std::endl;
             // Code to set up Mode 2
             break;
     }
+    
     repaint(); // Request a repaint since the background color has changed
-}*/
+}
 
 //==============================================================================
 void DeckComponent::paint (juce::Graphics& g)
@@ -355,5 +359,9 @@ void DeckComponent::resized()
     jog.setBounds(margin, (windowHeight-jogDim)/2-50, jogDim, jogDim);
     //jog.setDoubleClickReturnValue(true, 0);
     
+}
+
+DeckComponent::Mode DeckComponent::getMode() const {
+    return currentMode;
 }
 
